@@ -5,6 +5,7 @@ import axios from "axios";
 import SimpleCard from "../components/simpleCard";
 import Layout from "../components/layout";
 import Search from "../components/search";
+import FormDialog from "../components/dialog"
 
 export default function Home({ commands }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -32,6 +33,7 @@ export default function Home({ commands }) {
       </Head>
       <Layout>
         <Search searchTerm={searchTerm} handleChange={handleChange} />
+        <FormDialog/>
         {searchResults.map((command) => (
           <div key={command.id}>
             <Link href={"/command/[id]"} as={`/command/${command.id}`}>
